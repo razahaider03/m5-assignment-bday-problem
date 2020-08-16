@@ -3,7 +3,8 @@ package mooc.vandy.java4android.birthdayprob.logic;
 import android.annotation.SuppressLint;
 import mooc.vandy.java4android.birthdayprob.ui.OutputInterface;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -80,20 +81,28 @@ public class Logic
     public double calculate(int size, int count) {
 
         // TODO -- add your code here
-        Random ran = new Random();
-        int c = 0;
+        int duplicate = 0;
+        for ( int i = 0; i<count; i++ ){
+
+            Random rand = new Random();
+            rand.setSeed(i+1);
+            List<Integer> Bday = new ArrayList<>(size);
+            int loop = 0, same = 0;
             do {
-               int birth=ran.nextInt(365);
-                c++;
-                int [] Days = new int[size];
-                for (int i = 0; i==c; i++){
-                    Days[i] = birth;
+                int days =rand.nextInt(365);
+                if (!Bday.contains(days)){
+                    Bday.add(days);
+                } else if (Bday.contains(days)) {
+                    same++;
+                    break;
                 }
-            } while (c!=size);
-
-
-        return calculate(size,count);
-
+                loop++;
+            } while (loop != size);
+            if (same == 1){
+                duplicate++;
+            }
+        }
+            return (double)duplicate/count*100;
     }
 
     // TODO - add your code here
