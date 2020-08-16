@@ -1,3 +1,2 @@
-*
-!.gitignore
+/*
 !/app/src/main/java/mooc/vandy/java4android/birthdayprob/logic/Logic.java
