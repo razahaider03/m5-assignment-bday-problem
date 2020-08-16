@@ -1,2 +1,2 @@
 # m5-assignment-bday-problem
-This is a coursera assignment problem for week 2 birthday problem.
+This is a coursera assignment for week 2 birthday problem.
